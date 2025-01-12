@@ -1,0 +1,59 @@
+/* Estilos gerais para o body */
+body {
+    font-family: Arial, sans-serif; /* Define a fonte */
+    background-color: #f8f9fa; /* Cor de fundo do body */
+    margin: 0; /* Remove margens */
+    padding: 20px; /* Adiciona espaçamento interno de 20px */
+}
+
+#menu, #quiz {
+    text-align: center; /* Alinha o texto ao centro */
+    margin-top: 50px; /* Margem superior de 50px */
+    font-size: 20px; 
+}
+/* Estilos para botões */
+button {
+    background-color: #90ee90; /* Cor de fundo dos botões */
+    border: none; /* Remove borda */
+    border-radius: 10px; /* Borda arredondada */
+    color: white; /* Cor do texto */
+    padding: 15px 10px; /* Preenchimento interno */
+    text-align: center; /* Alinha o texto ao centro */
+    text-decoration: none; 
+    display: inline-block; /* Exibe como bloco em linha */
+    font-size: 20px; 
+    margin: 4px 2px; /* Margem externa */
+    cursor: pointer; /* Altera o cursor quando está em cima do botão*/
+}
+/*Para alterar a cor do botão ao passar o mouse*/
+button:hover {
+    background-color: #76c76b;
+}
+
+#question-container {
+    margin-top: 20px; 
+    font-size: 24px; 
+} 
+
+#options-container {
+    margin-top: 20px; 
+}
+
+#options-container button {
+    display: block; /* Exibe como bloco */
+    margin: 10px auto; /* Margem externa */
+    width: 260px;
+}
+
+/* Estilo para o rodapé */
+footer {
+    position: fixed; /* Fixa o rodapé */
+    left: 0;
+    bottom: 0;
+    width: 100%; /* Largura total */
+    background-color: #4CAF50; 
+    color: white; 
+    text-align: center; /* Alinha o texto ao centro */
+    padding: 10px; /* Espaçamento interno de 10px */
+    margin-bottom: 10px; /* Margem inferior de 10px */
+}

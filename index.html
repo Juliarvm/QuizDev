@@ -1,40 +1,31 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-    <head>
-        <title>Quiz Dev</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="./css/style.css" rel="stylesheet">
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-        />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    </head>
-    <body>
-        <div class="container">
-            <header class="title">
-                <div class="title-img">
-                    <img src="./images/title.png" class="animate__animated animate__tada animate__infinite">
-                </div>
-            </header>
-            <section>
-                <!-- Menu de seleção para o tema das perguntas -->
-                <div class="container menu-start">
-                    <h1 class="theme-title-quiz">Selecione o tema para começar:</h1>
-                    <select name="select" id="theme">
-                        <option value="games" selected>Video Game</option>
-                        <option value="animes">Anime</option>
-                        <option value="animais">Mundo Animal</option>
-                        <option value="história">História</option>
-                        <option value="filmes">Cinema</option>
-                        <option value="seriados">Séries</option>
-                    </select>
-                    <!-- botão de start -->
-                    <button class="start" id="start">Começar</button>
-                </div>
-            </section>
-        </div>
-        <script type="text/javascript" src="./js/main.js"></script>
-    </body>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="style.css"> <!-- Importa o arquivo CSS externo -->
+    <link rel="icon" href="/imgs/easyLogo.jpg" type="image/jpg"> <!-- Ícone da aba do navegador -->
+</head>
+
+<body>
+    <div id="menu">
+        <h1>Olá! Bem-vindo(a) ao menu de questões!</h1>
+        <p>Aqui você pode selecionar qual tipo de quiz você deseja realizar:</p>
+        <button onclick="startQuiz('metodo')">Quiz - O Método</button>
+        <button onclick="startQuiz('ingles')">Quiz - Inglês básico</button>
+        <button onclick="startQuiz('informacoes')">Quiz - Informações importantes</button>
+        <button onclick="exitQuiz()">Sair</button>
+    </div>
+
+    <div id="quiz" style="display:none;">
+        <div id="question-container"></div>
+        <div id="options-container"></div>
+        <p id="score"></p>
+    </div>
+
+
+    <!-- Script JS -->
+    <script src="script.js"></script>
+</body>
 </html>
