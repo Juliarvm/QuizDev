@@ -1,31 +1,50 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=2.0">
     <title>Quiz</title>
     <link rel="stylesheet" href="style.css"> <!-- Importa o arquivo CSS externo -->
-    <link rel="icon" href="/imgs/easyLogo.jpg" type="image/jpg"> <!-- Ícone da aba do navegador -->
+    <link rel="icon" href="" type="image/jpg"> <!-- Ícone da aba do navegador -->
 </head>
 
 <body>
-    <div id="menu">
-        <h1>Olá! Bem-vindo(a) ao menu de questões!</h1>
-        <p>Aqui você pode selecionar qual tipo de quiz você deseja realizar:</p>
-        <button onclick="startQuiz('metodo')">Quiz - O Método</button>
-        <button onclick="startQuiz('ingles')">Quiz - Inglês básico</button>
-        <button onclick="startQuiz('informacoes')">Quiz - Informações importantes</button>
-        <button onclick="exitQuiz()">Sair</button>
-    </div>
+    <!-- Container Centralizado -->
+    <div id="container">
+        <!-- Menu Inicial -->
+        <div id="menu">
+            <h1>Quiz de programação</h1>
+            <h2>Seja bem-vindo!</h2>
+            <p>Clique no botão abaixo para começar:</p>
+            <button onclick="startQuiz()">Iniciar</button>
+        </div>
 
-    <div id="quiz" style="display:none;">
-        <div id="question-container"></div>
-        <div id="options-container"></div>
-        <p id="score"></p>
-    </div>
+        <!-- Menu de Categorias -->
+        <div id="category-menu" style="display:none;">
+            <h1>Quiz de programação</h1>
+            <h2>Escolha uma categoria</h2>
+            <p>As perguntas serão referentes a uma das linguagens abaixo:</p>
+            <button onclick="category('python')">Python</button>
+            <button onclick="category('javaScript')">JavaScript</button>
+            <button onclick="category('css')">CSS</button>
+            <button onclick="exitQuiz()">Sair</button>
+        </div>
 
+        <!-- Quiz -->
+        <div id="quiz" style="display:none;">
+            <div id="question-container">
+                <p id="question-number">Pergunta 1 de 5</p>
+                <p id="question-text"></p>
+            </div>
+            <div id="options-container"></div>
+            <p id="score"></p>
+        </div>
+
+    </div>
 
     <!-- Script JS -->
     <script src="script.js"></script>
 </body>
+
 </html>

@@ -5,26 +5,26 @@ let totalPoints = 0; // Total de pontos do jogador
 let startTime; // Armazena o tempo de início do quiz
 // Banco de dados dos quizzes
 const quizzes = {
-    metodo: [  // Perguntas e respostas para o quiz 'metodo'
-        ["Qual é a primeira etapa proposta pelo Método?", "A) Mar - exposição", "B) Mineração - vocabulário", "C) Anki - revisão", "D) SRE - gênero", "B"],
-        ["Quem escreveu o livro 'Morte no nilo'?", "A) Stephen King", "B) Machado de Assis", "C) Jane Austen", "D) Agatha Christie", "D"],
-        ["O que é um algoritmo?", "A) Um tipo de linguagem de programação", "B) Uma sequência finita de instruções", "C) Um método de criptografia", "D) Uma marca de computador", "B"],
-        ["Qual a capital do Brasil?", "A) São Paulo", "B) Rio de Janeiro", "C) Brasília", "D) Belo Horizonte", "C"],
-        ["Quem escreveu 'Dom Quixote'?", "A) William Shakespeare", "B) Miguel de Cervantes", "C) Dante Alighieri", "D) Victor Hugo", "B"]
+    python: [  // Perguntas e respostas para o quiz 'python'
+        ["Qual é o comando para imprimir uma mensagem em Python?", "A) print()", "B) echo()", "C) console.log()", "D) write()", "A"],
+        ["Como se declara uma variável em Python?", "A) var x = 10", "B) int x = 10", "C) let x = 10", "D) x = 10", "D"],
+        ["Qual é o operador para potência em Python?", "A) ^", "B) **", "C) *", "D) %", "B"],
+        ["Como se cria uma função em Python?", "A) def func(){}", "B) function func(){}", "C) func(){}", "D) create func()", "A"],
+        ["Qual é o tipo de dados usado para representar texto em Python?", "A) string", "B) char", "C) text", "D) str", "A"]
     ],
-    ingles: [  // Perguntas e respostas para o quiz 'ingles'
-        ["Qual é a principal habilidade desenvolvida através da prática do 'shadowing' no aprendizado de inglês?", "A) Vocabulário ativo", "B) Pronúncia correta", "C) Compreensão auditiva", "D) Estrutura gramatical", "B"],
-        ["Qual é o tempo verbal usado para expressar ações que ocorreram no passado e já foram concluídas antes de um momento específico no passado?", "A) Past Simple", "B) Present Perfect", "C) Past Continuous", "D) Future Perfect", "A"],
-        ["Qual é o sinônimo de 'fortunate' em inglês?", "A) Happy", "B) Lucky", "C) Successful", "D) Wealthy", "B"],
-        ["Quais são os dois tipos principais de cláusulas em inglês?", "A) Substantivas e adjetivas", "B) Independentes e dependentes", "C) Relativas e absolutas", "D) Simples e compostas", "B"],
-        ["O que são 'phrasal verbs' na gramática inglesa?", "A) Verbos que expressam ações físicas", "B) Verbos acompanhados por uma preposição ou advérbio que alteram seu significado", "C) Verbos irregulares usados no passado simples", "D) Verbos modais que indicam permissão", "B"]
+    javaScript: [  // Perguntas e respostas para o quiz 'javascript'
+        ["Qual comando é usado para exibir uma mensagem no console em JavaScript?", "A) print()", "B) echo()", "C) alert()", "D) console.log()", "D"],
+        ["Como se cria uma variável em JavaScript?", "A) var x = 10", "B) let x = 10", "C) const x = 10", "D) Todos os anteriores", "D"],
+        ["Qual é o operador utilizado para comparar dois valores em JavaScript?", "A) =", "B) ===", "C) ==", "D) <>", "B"],
+        ["Como você escreve um comentário em uma linha em JavaScript?", "A) // comentário", "B) # comentário", "C) <!-- comentário -->", "D) /* comentário */", "A"],
+        ["O que é uma função anônima em JavaScript?", "A) Uma função sem nome", "B) Uma função que retorna um valor", "C) Uma função que só pode ser chamada uma vez", "D) Uma função com argumento obrigatório", "A"]
     ],
-    informacoes: [  // Perguntas e respostas para o quiz 'informacoes'
-        ["Qual é a capital da França?", "A) Londres", "B) Paris", "C) Berlim", "D) Roma", "B"],
-        ["Qual é o maior planeta do sistema solar?", "A) Júpiter", "B) Saturno", "C) Terra", "D) Netuno", "A"],
-        ["Quem pintou a 'Mona Lisa'?", "A) Leonardo da Vinci", "B) Pablo Picasso", "C) Vincent van Gogh", "D) Michelangelo", "A"],
-        ["Quem foi o primeiro presidente do Brasil?", "A) Getúlio Vargas", "B) Juscelino Kubitschek", "C) Marechal Deodoro da Fonseca", "D) Fernando Henrique Cardoso", "C"],
-        ["Qual é o número atômico do hidrogênio?", "A) 1", "B) 2", "C) 3", "D) 4", "A"]
+    css: [  // Perguntas e respostas para o quiz 'css'
+        ["Como você altera a cor de fundo de uma página em CSS?", "A) background-color: #fff;", "B) color: #fff;", "C) background: #fff;", "D) all-of-the-above;", "A"],
+        ["Qual propriedade CSS é usada para mudar o tipo da fonte?", "A) font-family", "B) text-font", "C) font-style", "D) font-type", "A"],
+        ["O que faz a propriedade 'position: absolute' em CSS?", "A) Posiciona um elemento em relação ao seu primeiro elemento pai posicionado", "B) Posiciona um elemento no centro da tela", "C) Posiciona um elemento fixo na tela", "D) Posiciona um elemento de forma relativa", "A"],
+        ["Como você faz o texto de um parágrafo aparecer em negrito em CSS?", "A) font-weight: bold;", "B) text-transform: bold;", "C) font-style: bold;", "D) text-weight: bold;", "A"],
+        ["Como você adiciona uma borda a um elemento em CSS?", "A) border: 1px solid black;", "B) border-width: 1px;", "C) border-style: solid;", "D) all of the above", "A"]
     ]
 };
 // Função para embaralhar as perguntas de um quiz
@@ -36,16 +36,23 @@ function shuffleQuestions(quiz) {
     return quiz; // Retorna o quiz embaralhado
 }
 
-// Função para iniciar o quiz
-function startQuiz(quizType) {
+// Função para mudar para página de escolha de categoria
+function startQuiz() {
+    document.getElementById('menu').style.display = 'none'; // Esconde o menu inicial
+    document.getElementById('category-menu').style.display = 'block'; // Exibe o menu de categorias
+}
+
+// Função para iniciar o quiz de uma categoria selecionada
+function category(quizType) {
     // Define o quiz atual com base no tipo selecionado e embaralha as perguntas
     currentQuiz = shuffleQuestions(quizzes[quizType]);
     currentQuestionIndex = 0; // Reinicia o índice da pergunta
     totalPoints = 0; // Reinicia o total de pontos
-    document.getElementById('menu').style.display = 'none'; // Esconde o menu
+    document.getElementById('category-menu').style.display = 'none'; // Esconde o menu de categorias
     document.getElementById('quiz').style.display = 'block'; // Exibe a área do quiz
     nextQuestion(); // Chama a função para exibir a próxima pergunta
 }
+
 
 // Função para exibir a próxima pergunta
 function nextQuestion() {
@@ -64,10 +71,14 @@ function nextQuestion() {
         document.getElementById('menu').style.display = 'block'; // Exibe o menu novamente
     }
 }
+
 // Função para exibir uma pergunta
 function displayQuestion(questionData) {
     // Exibe a pergunta na interface
-    document.getElementById('question-container').innerText = questionData[0];
+    document.getElementById('question-text').innerText = questionData[0];
+    const questionNumber = document.getElementById('question-number');
+    questionNumber.innerText = `Pergunta ${currentQuestionIndex + 1} de ${currentQuiz.length}`; // Atualiza a contagem
+
     const optionsContainer = document.getElementById('options-container');
     optionsContainer.innerHTML = '';
 
@@ -79,6 +90,7 @@ function displayQuestion(questionData) {
         optionsContainer.appendChild(button);
     }
 }
+
 // Função para verificar a resposta selecionada
 function checkAnswer(correctAnswer, selectedAnswer) {
     const elapsedTime = (new Date().getTime() - startTime) / 1000; // Calcula o tempo decorrido
@@ -121,6 +133,6 @@ function checkAnswer(correctAnswer, selectedAnswer) {
 }
 // Função para sair do quiz
 function exitQuiz() {
-    alert('Obrigado por utilizar o menu de questões! Até a próxima!'); // Mensagem de agradecimento
+    alert('Obrigado por jogar! Até a próxima!'); 
     window.close(); // Fecha a janela do navegador
 }

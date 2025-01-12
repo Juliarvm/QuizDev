@@ -1,59 +1,148 @@
-/* Estilos gerais para o body */
-body {
-    font-family: Arial, sans-serif; /* Define a fonte */
-    background-color: #f8f9fa; /* Cor de fundo do body */
-    margin: 0; /* Remove margens */
-    padding: 20px; /* Adiciona espaçamento interno de 20px */
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Raleway", sans-serif;
+    color: #fff;
 }
 
-#menu, #quiz {
-    text-align: center; /* Alinha o texto ao centro */
-    margin-top: 50px; /* Margem superior de 50px */
-    font-size: 20px; 
+body,
+html {
+    min-height: 100vh;
+    height: 100%;
+    background-color: #1c1c1c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
 }
-/* Estilos para botões */
+
+#container {
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
+}
+
 button {
-    background-color: #90ee90; /* Cor de fundo dos botões */
-    border: none; /* Remove borda */
-    border-radius: 10px; /* Borda arredondada */
-    color: white; /* Cor do texto */
-    padding: 15px 10px; /* Preenchimento interno */
-    text-align: center; /* Alinha o texto ao centro */
-    text-decoration: none; 
-    display: inline-block; /* Exibe como bloco em linha */
-    font-size: 20px; 
-    margin: 4px 2px; /* Margem externa */
-    cursor: pointer; /* Altera o cursor quando está em cima do botão*/
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(90deg, rgba(132, 53, 222, 1) 0%, rgba(184, 84, 232, 1) 100%);
+    border-radius: 3rem;
+    border: none;
 }
-/*Para alterar a cor do botão ao passar o mouse*/
+
 button:hover {
-    background-color: #76c76b;
+    background: linear-gradient(90deg, rgba(184, 84, 232, 1) 0%, rgba(132, 53, 222, 1) 100%);
+}
+
+/* Estilos para o menu inicial e categorias */
+#menu,
+#category-menu,
+#quiz {
+    display: none;
+    /* Inicialmente escondido */
+}
+
+/* Menu de categorias e quiz */
+#category-menu,
+#quiz {
+    display: block;
+}
+
+/* Cor do parágrafo */
+p {
+    color: #9b59b6;
+    /* Roxo bonito */
+}
+
+/* Centralizando o conteúdo */
+#quiz,
+#category-menu,
+#menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1,
+h2 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+/* Ajuste no botão do menu */
+button {
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+    margin: 10px;
+    background: linear-gradient(90deg, rgba(132, 53, 222, 1) 0%, rgba(184, 84, 232, 1) 100%);
+    border-radius: 3rem;
+    border: none;
+}
+
+button:hover {
+    background: linear-gradient(90deg, rgba(184, 84, 232, 1) 0%, rgba(132, 53, 222, 1) 100%);
+}
+
+/* Estilos gerais */
+#quiz {
+    background-color: #1c1c1c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
 }
 
 #question-container {
-    margin-top: 20px; 
-    font-size: 24px; 
-} 
+    background-color: #6a1b9a;
+    /* Cor roxa */
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+    color: white;
+    font-size: 1.2rem;
+    position: relative;
+}
+
+#question-number {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 1rem;
+    color: #fff;
+}
+
+#question-text {
+    margin-top: 30px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    color: #d8d8d8;
+}
 
 #options-container {
-    margin-top: 20px; 
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
 }
 
-#options-container button {
-    display: block; /* Exibe como bloco */
-    margin: 10px auto; /* Margem externa */
-    width: 260px;
+/* Outros ajustes de estilo */
+button {
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(90deg, rgba(132, 53, 222, 1) 0%, rgba(184, 84, 232, 1) 100%);
+    border-radius: 3rem;
+    border: none;
 }
 
-/* Estilo para o rodapé */
-footer {
-    position: fixed; /* Fixa o rodapé */
-    left: 0;
-    bottom: 0;
-    width: 100%; /* Largura total */
-    background-color: #4CAF50; 
-    color: white; 
-    text-align: center; /* Alinha o texto ao centro */
-    padding: 10px; /* Espaçamento interno de 10px */
-    margin-bottom: 10px; /* Margem inferior de 10px */
+button:hover {
+    background: linear-gradient(90deg, rgba(184, 84, 232, 1) 0%, rgba(132, 53, 222, 1) 100%);
 }
