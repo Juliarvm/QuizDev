@@ -27,10 +27,22 @@
             <h1>Quiz de programação</h1>
             <h2>Escolha uma categoria</h2>
             <p>As perguntas serão referentes a uma das linguagens abaixo:</p>
-            <button onclick="category('python')">Python</button>
-            <button onclick="category('javaScript')">JavaScript</button>
-            <button onclick="category('css')">CSS</button>
-            <button onclick="exitQuiz()">Sair</button>
+            <button id="category-python" style="background-image: url('./img/python.png');"
+                onclick="category('python')"></button>
+            <button id="category-js" style="background-image: url('./img/JS.png');"
+                onclick="category('javaScript')"></button>
+            <button id="category-css" style="background-image: url('./img/css.png');"
+                onclick="category('css')"></button>
+            <button id="category-cplusplus" style="background-image: url('./img/c++.png');"
+                onclick="category('cpp')"></button>
+            <button id="category-csharp" style="background-image: url('./img/cSharp.png');"
+                onclick="category('csharp')"></button>
+            <button id="category-java" style="background-image: url('./img/java.png');"
+                onclick="category('java')"></button>
+            <button id="category-html" style="background-image: url('./img/html.png');"
+                onclick="category('html')"></button>
+            <button id="category-swift" style="background-image: url('./img/swift.png');"
+                onclick="category('swift')"></button>
         </div>
 
         <!-- Quiz -->
@@ -55,8 +67,6 @@
             <button onclick="restartQuiz()">Jogar Novamente</button>
             <button onclick="exitQuiz()">Sair</button>
         </div>
-
-
     </div>
 
     <!-- Script JS -->

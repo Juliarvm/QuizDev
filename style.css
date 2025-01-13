@@ -21,6 +21,64 @@ html {
     margin: 0;
 }
 
+#category-menu {
+    display: flex;
+    /* Torna o container um flexbox */
+    justify-content: space-between;
+    /* Espalha os botões horizontalmente */
+    align-items: center;
+    /* Alinha os itens ao centro */
+    flex-wrap: wrap;
+    /* Permite que os itens se ajustem em múltiplas linhas, se necessário */
+    gap: 20px;
+    /* Adiciona espaçamento entre os botões */
+    padding: 20px;
+}
+
+#category-menu button {
+    width: 80px;
+    /* Largura fixa para os botões */
+    height: 80px;
+    /* Altura fixa para os botões */
+    background-size: cover;
+    /* Ajusta a imagem para cobrir o botão */
+    background-position: center;
+    /* Centraliza a imagem */
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    /* Transição suave */
+}
+
+/* Efeito de diminuição ao clicar */
+#category-menu button:active {
+    transform: scale(0.9);
+    /* Diminui o botão para 90% do tamanho original */
+}
+
+#category-menu button:hover {
+    opacity: 0.8;
+    /* Opacidade para o efeito de hover */
+}
+
+
+#category-menu h2 {
+    text-align: center;
+    /* Centraliza o título */
+    width: 100%;
+    /* Garante que o título ocupe toda a largura do container */
+    margin-bottom: 20px;
+}
+
+
+#category-menu button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ajusta a imagem para o tamanho do botão */
+    border-radius: 10px;
+}
+
 #container {
     display: flex;
     flex-direction: column;
@@ -177,12 +235,28 @@ button.incorrect {
     display: none;
     text-align: center;
     color: #fff;
-    padding: 20px;
+    padding: 30px;
     box-sizing: border-box;
+    overflow-y: auto;
+    /* Permite rolagem vertical */
+}
+
+#final-screen::-webkit-scrollbar {
+    display: none;
 }
 
 #final-screen h1 {
     margin-bottom: 20px;
+}
+
+#final-screen h3 {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+#final-screen p {
+    font-size: 20px;
+    margin-top: 10px;
 }
 
 #final-screen ul {
@@ -193,4 +267,6 @@ button.incorrect {
 #final-screen ul li {
     margin: 5px 0;
     color: #b854e8;
+    font-size: 20px;
+    margin-bottom: 15px;
 }
