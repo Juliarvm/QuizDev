@@ -40,8 +40,22 @@
                 <p id="question-text"></p>
             </div>
             <div id="options-container"></div>
+            <!-- Contêiner para o botão "Próximo" -->
+            <div id="next-button-container"></div>
             <p id="score"></p>
         </div>
+        <!-- Tela de finalização -->
+        <div id="final-screen" style="display:none;">
+            <h1>Quiz finalizado!</h1>
+            <p id="final-category"></p>
+            <p id="final-score"></p>
+            <p id="record-message"></p>
+            <h3>Recordes:</h3>
+            <ul id="score-history"></ul>
+            <button onclick="restartQuiz()">Jogar Novamente</button>
+            <button onclick="exitQuiz()">Sair</button>
+        </div>
+
 
     </div>
 

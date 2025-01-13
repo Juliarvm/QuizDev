@@ -97,40 +97,114 @@ function checkAnswer(correctAnswer, selectedAnswer) {
     let points = 0; // Inicializa a pontuação da resposta
     let resultMessage = ''; // Mensagem para exibir na página HTML
 
-    // Verifica se a resposta está correta
+    // Recupera todos os botões das opções
+    const buttons = document.getElementById('options-container').getElementsByTagName('button');
+
+    for (let button of buttons) {
+        const answerLetter = button.innerText.charAt(0); // Letra da opção
+
+        if (answerLetter === correctAnswer) {
+            // Adiciona a classe que destaca a resposta correta
+            button.classList.add('correct');
+        }
+
+        if (answerLetter === selectedAnswer) {
+            // Adiciona a classe para a resposta selecionada
+            button.classList.add(answerLetter === correctAnswer ? 'correct' : 'incorrect');
+        }
+
+        // Desabilita todas as opções
+        button.disabled = true;
+    }
+
     if (selectedAnswer === correctAnswer) {
         // Calcula a pontuação com base no tempo de resposta
         points = elapsedTime <= 10 ? Math.round((10 - elapsedTime) / 10 * 10) : 1;
-        resultMessage = 'Resposta correta!'; // Mensagem de resposta correta
+        resultMessage = 'Resposta correta!';
     } else {
-        resultMessage = 'Resposta incorreta'; // Mensagem de resposta incorreta
+        resultMessage = 'Resposta incorreta!';
     }
 
-    // Cria elemento para exibir a mensagem de resultado na página
+    // Exibe a mensagem de resultado
     const resultElement = document.createElement('p');
     resultElement.textContent = resultMessage;
-    resultElement.style.color = selectedAnswer === correctAnswer ? 'chartreuse' : 'red'; // Cor da mensagem
-
-    // Adiciona o elemento à área de opções
+    resultElement.className = selectedAnswer === correctAnswer ? 'correct-message' : 'incorrect-message';
     const optionsContainer = document.getElementById('options-container');
     optionsContainer.appendChild(resultElement);
 
-    totalPoints += points; // Atualiza a pontuação total
-    document.getElementById('score').innerText = `Pontos: ${totalPoints}`; // Exibe a pontuação na interface
+    // Atualiza a pontuação total
+    totalPoints += points;
+    document.getElementById('score').innerText = `Pontos: ${totalPoints}`;
 
-    // Desativa os botões de resposta após a seleção
-    const buttons = optionsContainer.getElementsByTagName('button');
-    for (let i = 0; i < buttons.length; i++) {
-        buttons[i].disabled = true;
-    }
     // Incrementa o índice da pergunta atual
     currentQuestionIndex++;
-    // Cria botão "Próximo" para avançar para a próxima pergunta
+
+    // Exibe o botão "Próximo"
     const nextButton = document.createElement('button');
     nextButton.innerText = 'Próximo';
     nextButton.onclick = nextQuestion;
-    optionsContainer.appendChild(nextButton);
+    nextButton.id = 'next-button';
+    const nextButtonContainer = document.getElementById('next-button-container');
+    nextButtonContainer.innerHTML = ''; // Limpa o contêiner
+    nextButtonContainer.appendChild(nextButton);
 }
+let highScores = JSON.parse(localStorage.getItem('quizHighScores')) || {}; // Recupera o histórico do localStorage
+
+// Função para exibir a tela de finalização do quiz
+function finishQuiz() {
+    document.getElementById('quiz').style.display = 'none'; // Esconde o quiz
+    document.getElementById('final-screen').style.display = 'block'; // Exibe a tela final
+
+    const finalCategory = currentQuiz === quizzes.python ? 'Python' :
+        currentQuiz === quizzes.javaScript ? 'JavaScript' :
+            'CSS';
+
+    // Atualiza o histórico de pontuações
+    if (!highScores[finalCategory] || totalPoints > highScores[finalCategory]) {
+        highScores[finalCategory] = totalPoints; // Atualiza o recorde
+        localStorage.setItem('quizHighScores', JSON.stringify(highScores)); // Salva no localStorage
+        document.getElementById('record-message').innerText = 'Novo recorde!';
+    } else {
+        document.getElementById('record-message').innerText = 'Tente bater o recorde!';
+    }
+
+    // Exibe os dados na tela
+    document.getElementById('final-category').innerText = `Categoria: ${finalCategory}`;
+    document.getElementById('final-score').innerText = `Sua pontuação: ${totalPoints}`;
+    updateScoreHistory(finalCategory);
+}
+
+// Função para atualizar o histórico de pontuações na tela
+function updateScoreHistory(category) {
+    const scoreHistoryList = document.getElementById('score-history');
+    scoreHistoryList.innerHTML = '';
+
+    for (const [cat, score] of Object.entries(highScores)) {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${cat}: ${score} pontos`;
+        scoreHistoryList.appendChild(listItem);
+    }
+}
+
+// Adapte a função `nextQuestion` para chamar `finishQuiz` quando o quiz terminar
+function nextQuestion() {
+    const optionsContainer = document.getElementById('options-container');
+    optionsContainer.innerHTML = '';
+
+    if (currentQuestionIndex < currentQuiz.length) {
+        displayQuestion(currentQuiz[currentQuestionIndex]);
+        startTime = new Date().getTime();
+    } else {
+        finishQuiz(); // Chama a tela de finalização
+    }
+}
+
+// Função para reiniciar o quiz
+function restartQuiz() {
+    document.getElementById('final-screen').style.display = 'none'; // Esconde a tela final
+    document.getElementById('menu').style.display = 'block'; // Mostra o menu inicial
+}
+
 // Função para sair do quiz
 function exitQuiz() {
     alert('Obrigado por jogar! Até a próxima!');

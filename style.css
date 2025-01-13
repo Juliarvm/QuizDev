@@ -11,7 +11,7 @@ html {
     min-height: 100vh;
     height: 100%;
     background-color: #78aed4;
-    background-image: url('./img/fundo1.png');
+    background-image: url('./img/fundo.png');
     background-size: 700px auto;
     background-position: left center;
     background-repeat: no-repeat;
@@ -63,7 +63,7 @@ html {
     margin: 20px 0;
 }
 
-/* Botões comuns */
+
 button {
     font-weight: bold;
     cursor: pointer;
@@ -94,15 +94,52 @@ button:hover {
 }
 
 #question-container {
-    background-color: #6a1b9a;
+    background-color: #733798;
     padding: 20px;
     border-radius: 10px;
     width: 100%;
     max-width: 600px;
+    /* Maior largura para garantir alinhamento adequado */
     margin: 0 auto;
+    /* Centraliza o container */
     color: white;
     position: relative;
     box-sizing: border-box;
+    text-align: left;
+    /* Alinha o texto à esquerda */
+}
+
+#question-text {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    line-height: 1.5;
+    /* Espaçamento entre as linhas para melhorar a legibilidade */
+    text-align: left;
+}
+
+/* Classe para destacar a resposta correta */
+button.correct {
+    background: rgb(116, 213, 19);
+    color: #000;
+}
+
+/* Classe para destacar a resposta incorreta */
+button.incorrect {
+    background: rgb(210, 41, 41);
+    color: #000;
+}
+
+/* Mensagens de feedback */
+.correct-message {
+    color: chartreuse;
+    font-weight: bold;
+}
+
+.incorrect-message {
+    color: red;
+    font-weight: bold;
 }
 
 #question-number {
@@ -113,20 +150,47 @@ button:hover {
     color: #fff;
 }
 
-#question-text {
-    margin-top: 20px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #d8d8d8;
-}
-
 #options-container {
     display: flex;
     flex-direction: column;
     gap: 10px;
     margin-top: 10px;
+    width: 100%;
+    /* Garantir que as opções tenham largura total do container */
+}
+
+#next-button {
+    text-align: center;
+}
+
+#options-container button {
+    text-align: left;
+    padding: 10px;
 }
 
 #score {
     margin-top: 10px;
+}
+
+/* Tela final dentro do mesmo container */
+#final-screen {
+    display: none;
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#final-screen h1 {
+    margin-bottom: 20px;
+}
+
+#final-screen ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#final-screen ul li {
+    margin: 5px 0;
+    color: #b854e8;
 }
