@@ -109,7 +109,7 @@ function checkAnswer(correctAnswer, selectedAnswer) {
     // Cria elemento para exibir a mensagem de resultado na página
     const resultElement = document.createElement('p');
     resultElement.textContent = resultMessage;
-    resultElement.style.color = selectedAnswer === correctAnswer ? 'green' : 'red'; // Cor da mensagem
+    resultElement.style.color = selectedAnswer === correctAnswer ? 'chartreuse' : 'red'; // Cor da mensagem
 
     // Adiciona o elemento à área de opções
     const optionsContainer = document.getElementById('options-container');
@@ -133,6 +133,6 @@ function checkAnswer(correctAnswer, selectedAnswer) {
 }
 // Função para sair do quiz
 function exitQuiz() {
-    alert('Obrigado por jogar! Até a próxima!'); 
+    alert('Obrigado por jogar! Até a próxima!');
     window.close(); // Fecha a janela do navegador
 }

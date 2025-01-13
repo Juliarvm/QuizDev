@@ -5,11 +5,16 @@
     color: #fff;
 }
 
+/* Estilos gerais para o body e html */
 body,
 html {
     min-height: 100vh;
     height: 100%;
-    background-color: #1c1c1c;
+    background-color: #78aed4;
+    background-image: url('./img/fundo1.png');
+    background-size: 700px auto;
+    background-position: left center;
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,78 +22,70 @@ html {
 }
 
 #container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     text-align: center;
-    max-width: 800px;
-    width: 100%;
+    background: linear-gradient(135deg, #4a90e2, #2c3447);
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 450px;
+    height: 550px;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
+/* Ajuste de margens e tamanhos de textos */
+#menu h1,
+#category-menu h1 {
+    margin-top: 40px;
+}
+
+#menu h2,
+#category-menu h2 {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+#category-menu p,
+#menu p {
+    color: rgba(184, 84, 232, 1);
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+/* Estilo do GIF */
+#menu img {
+    width: 200px;
+    margin: 20px 0;
+}
+
+/* Botões comuns */
 button {
     font-weight: bold;
     cursor: pointer;
-    font-size: 1.2rem;
+    font-size: 1rem;
     padding: 0.8rem 1.5rem;
     background: linear-gradient(90deg, rgba(132, 53, 222, 1) 0%, rgba(184, 84, 232, 1) 100%);
     border-radius: 3rem;
     border: none;
+    margin-top: 10px;
 }
 
 button:hover {
     background: linear-gradient(90deg, rgba(184, 84, 232, 1) 0%, rgba(132, 53, 222, 1) 100%);
 }
 
-/* Estilos para o menu inicial e categorias */
-#menu,
-#category-menu,
-#quiz {
-    display: none;
-    /* Inicialmente escondido */
-}
-
-/* Menu de categorias e quiz */
-#category-menu,
-#quiz {
+/* Menu de categorias específico */
+#category-menu {
     display: block;
 }
 
-/* Cor do parágrafo */
-p {
-    color: #9b59b6;
-    /* Roxo bonito */
-}
-
-/* Centralizando o conteúdo */
-#quiz,
-#category-menu,
-#menu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-h1,
-h2 {
-    color: #fff;
-    margin-bottom: 20px;
-}
-
-/* Ajuste no botão do menu */
-button {
-    font-size: 1.2rem;
-    padding: 1rem 2rem;
-    margin: 10px;
-    background: linear-gradient(90deg, rgba(132, 53, 222, 1) 0%, rgba(184, 84, 232, 1) 100%);
-    border-radius: 3rem;
-    border: none;
-}
-
-button:hover {
-    background: linear-gradient(90deg, rgba(184, 84, 232, 1) 0%, rgba(132, 53, 222, 1) 100%);
-}
-
-/* Estilos gerais */
+/* Estilo do Quiz */
 #quiz {
-    background-color: #1c1c1c;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -98,15 +95,14 @@ button:hover {
 
 #question-container {
     background-color: #6a1b9a;
-    /* Cor roxa */
     padding: 20px;
     border-radius: 10px;
     width: 100%;
     max-width: 600px;
-    margin-bottom: 20px;
+    margin: 0 auto;
     color: white;
-    font-size: 1.2rem;
     position: relative;
+    box-sizing: border-box;
 }
 
 #question-number {
@@ -118,10 +114,9 @@ button:hover {
 }
 
 #question-text {
-    margin-top: 30px;
-    font-size: 1.5rem;
+    margin-top: 20px;
+    font-size: 1.2rem;
     font-weight: bold;
-    text-align: center;
     color: #d8d8d8;
 }
 
@@ -129,20 +124,9 @@ button:hover {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
-/* Outros ajustes de estilo */
-button {
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 1.2rem;
-    padding: 0.8rem 1.5rem;
-    background: linear-gradient(90deg, rgba(132, 53, 222, 1) 0%, rgba(184, 84, 232, 1) 100%);
-    border-radius: 3rem;
-    border: none;
-}
-
-button:hover {
-    background: linear-gradient(90deg, rgba(184, 84, 232, 1) 0%, rgba(132, 53, 222, 1) 100%);
+#score {
+    margin-top: 10px;
 }
