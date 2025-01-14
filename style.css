@@ -53,29 +53,22 @@ html {
 /* Efeito de diminuição ao clicar */
 #category-menu button:active {
     transform: scale(0.9);
-    /* Diminui o botão para 90% do tamanho original */
 }
 
 #category-menu button:hover {
     opacity: 0.8;
-    /* Opacidade para o efeito de hover */
 }
-
 
 #category-menu h2 {
     text-align: center;
-    /* Centraliza o título */
     width: 100%;
-    /* Garante que o título ocupe toda a largura do container */
     margin-bottom: 20px;
 }
-
 
 #category-menu button img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    /* Ajusta a imagem para o tamanho do botão */
+    object-fit: cover;/* Ajusta a imagem para o tamanho do botão */
     border-radius: 10px;
 }
 
@@ -157,14 +150,11 @@ button:hover {
     border-radius: 10px;
     width: 100%;
     max-width: 600px;
-    /* Maior largura para garantir alinhamento adequado */
     margin: 0 auto;
-    /* Centraliza o container */
     color: white;
     position: relative;
     box-sizing: border-box;
     text-align: left;
-    /* Alinha o texto à esquerda */
 }
 
 #question-text {
@@ -173,7 +163,6 @@ button:hover {
     font-weight: bold;
     color: #fff;
     line-height: 1.5;
-    /* Espaçamento entre as linhas para melhorar a legibilidade */
     text-align: left;
 }
 
@@ -214,7 +203,6 @@ button.incorrect {
     gap: 10px;
     margin-top: 10px;
     width: 100%;
-    /* Garantir que as opções tenham largura total do container */
 }
 
 #next-button {
@@ -230,7 +218,6 @@ button.incorrect {
     margin-top: 10px;
 }
 
-/* Tela final dentro do mesmo container */
 #final-screen {
     display: none;
     text-align: center;
@@ -238,7 +225,6 @@ button.incorrect {
     padding: 30px;
     box-sizing: border-box;
     overflow-y: auto;
-    /* Permite rolagem vertical */
 }
 
 #final-screen::-webkit-scrollbar {
